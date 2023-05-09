@@ -3,7 +3,7 @@ import InserBooks from './inserbooks.js';
 import myNav from './navbar.js';
 import bookList from './bookList.js';
 
-const date = DateTime.local(2023, 9, 15, 7, 30);
+const date = DateTime.fromISO(DateTime.now()).toFormat('FF');
 const disdate = document.querySelector('.date');
 const p = document.createElement('p');
 p.innerHTML = `${date}`;

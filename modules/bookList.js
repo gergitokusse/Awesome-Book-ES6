@@ -5,7 +5,10 @@ class bookList {
   }
 
   static displayBooks() {
-    const storeData = JSON.parse(localStorage.getItem('addedBooks'));
+    let storeData = JSON.parse(localStorage.getItem('addedBooks'));
+    if (storeData === null) {
+      storeData = [];
+    }
     const listOfBooks = document.querySelector('.container');
     listOfBooks.innerHTML = '';
     storeData.forEach((book, i) => {

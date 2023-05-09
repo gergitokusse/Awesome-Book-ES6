@@ -2,7 +2,10 @@ import bookList from './bookList.js';
 
 class InserBooks {
   static addNewData(t, a) {
-    const storeData = JSON.parse(localStorage.getItem('addedBooks'));
+    let storeData = JSON.parse(localStorage.getItem('addedBooks'));
+    if (storeData === null) {
+      storeData = [];
+    }
     const error = document.querySelector('.error');
     if (a.value !== '' && t.value !== '') {
       storeData.push({ title: t.value, author: a.value });
@@ -26,7 +29,7 @@ class InserBooks {
       setTimeout(() => {
         error.innerHTML = '';
         error.classList.replace('success', 'error');
-      }, 800);
+      }, 600);
       bookList.displayBooks();
     } else {
       error.innerHTML = 'Auther or Book Title can"t be empty';
